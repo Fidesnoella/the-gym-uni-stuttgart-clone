@@ -1,21 +1,21 @@
 import React from 'react';
 import Image from 'next/image';
 import LogoWhite from "../../../public/assets/logoWhite.svg"
-import Chevron from "../../../public/assets/chevron.svg"
+import Facebook from "../../../public/assets/facebook.svg"
 
 function Footer() {
     return (
         <div>
-            <footer className='bg-[#333333] text-white px-[5.625rem] pt-10 pb-20 flex flex-col gap-10'>
-                <div className='flex gap-10 items-center'>
+            <footer className='bg-[#333333] text-white sm:px-4 px-[5.625rem] pt-10 pb-20 flex flex-col gap-10'>
+                <div className='flex md:flex-col gap-10 sm:items-start items-center'>
                     <div><Image src={LogoWhite} width={250} height={300} /></div>
-                    <div className='flex gap-3'>
+                    <div className='flex flex-wrap justify-center items-center gap-3'>
                         {
                             [1, 2, 3, 4, 5, 6].map((item, i) => {
                                 return (
                                     <div className='flex flex-col items-center'>
                                         <button className='bg-black w-20 h-20 rounded-full flex flex-col  items-center justify-between p-10 text-white'>
-                                            <span><Image src={Chevron} /></span>
+                                            <span><Image src={Facebook} width={80} height={80} /></span>
                                         </button>
                                         <span>Facebook</span>
                                     </div>
@@ -25,7 +25,7 @@ function Footer() {
                     </div>
                     <div></div>
                 </div>
-                <div className='grid grid-cols-4 w-full gap-20'>
+                <div className='grid sm:grid-cols-1 grid-cols-4 w-full gap-20'>
                     {
                         [1, 2, 3, 4].map((item, i) => {
                             return (
