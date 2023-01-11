@@ -2,7 +2,7 @@ import React from 'react';
 
 function cardImage({ image, text, para, style, size }) {
     return (
-        <div className={`bg-white pb-8 flex flex-col gap-5 ${style}`}>
+        <div className={`bg-white pb-8 flex flex-col gap-5 cursor-pointer hover:bg-[#00beff] ${style}`}>
             <span className={`rounded-full overflow-hidden mx-auto ${size}`}>
                 <img src={image} />
             </span>

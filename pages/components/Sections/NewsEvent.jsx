@@ -4,9 +4,9 @@ import CardImage from '../ui/cardImage';
 
 const NewsEvent = () => {
     return (
-        <div className='bg-[#333333] px-[5.625rem] py-10'>
+        <div className='bg-[#333333] sm:px-4 px-[5.625rem] py-10'>
             <h1 className='text-white font-bold text-3xl pb-5'>News and events for students</h1>
-            <div className='grid grid-cols-3 gap-x-5'>
+            <div className='sm:hidden grid grid-cols-3 gap-x-5'>
                 <div className='flex flex-col gap-y-5'>
                     <div>
                         <CardText
@@ -34,8 +34,8 @@ const NewsEvent = () => {
                 <div className='flex flex-col gap-y-5'>
                     <div>
                         <CardImage
-                            style={"pt-8"}
-                            image={"https://www.simtech.uni-stuttgart.de/img/Sim_Tech_Folge_03_Szene_27.jpg?__scale=w:220,h:220,cx:262,cy:26,cw:1073,ch:1073"}
+                            size={"w-full rounded-none"}
+                            image={"https://www.uni-stuttgart.de/universitaet/aktuelles/img/IRGE_Uni-Stuttgart_HdK_Rote-Stadtbalkone_Cansu-Coban_Paul-Menz.jpg?__scale=w:320,h:320,cx:0,cy:0,cw:2000,ch:2000"}
                             text={"Everyone feels sometimes stressed during their studies. But what can you do against it? Constanza has a few tips."}
                             para={"USUS blog | 1/4/23"}
                         />
@@ -84,6 +84,38 @@ const NewsEvent = () => {
                             para={"Article | 12/15/22"}
                         />
                     </div>
+                </div>
+            </div>
+            <div className='sm:flex flex-col gap-5 hidden'>
+                <div>
+                    <CardText
+                        title={"Newsticker: Information on the coronavirus"}
+                        para="Article | 11/10/22"
+                    />
+                </div>
+                <div>
+                    <CardImage
+                        style={"pt-8"}
+                        image={"https://www.uni-stuttgart.de/universitaet/aktuelles/img/IRGE_Uni-Stuttgart_HdK_Rote-Stadtbalkone_Cansu-Coban_Paul-Menz.jpg?__scale=w:320,h:320,cx:0,cy:0,cw:2000,ch:2000"}
+                        text={"Everyone feels sometimes stressed during their studies. But what can you do against it? Constanza has a few tips."}
+                        para={"USUS blog | 1/4/23"}
+                    />
+                </div>
+                <div>
+                    <CardImage
+                        size={"w-full rounded-none"}
+                        image={"https://www.uni-stuttgart.de/universitaet/aktuelles/video/img-video-vorschaubilder/24A_1280x720.jpg?__scale=w:560,h:400,cx:136,cy:0,cw:1008,ch:720"}
+                        text={"Latest episode:`Intelligent systems will help us in crises and in the future`"}
+                        para={"USUS blog | 1/4/23"}
+                    />
+                </div>
+                <div>
+                    <CardImage
+                        size={"w-full rounded-none"}
+                        image={"https://www.usus.uni-stuttgart.de/img/2022/stressed-student.jpg?__scale=w:560,h:400,cx:67,cy:0,cw:1866,ch:1333"}
+                        text={"Everyone feels sometimes stressed during their studies. But what can you do against it? Constanza has a few tips."}
+                        para={"USUS blog | 1/4/23"}
+                    />
                 </div>
             </div>
         </div>

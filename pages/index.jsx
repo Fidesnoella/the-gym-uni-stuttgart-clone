@@ -2,10 +2,12 @@ import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import Image from 'next/image'
 import Wrapper from './components/wrapper'
-import Chevron from "../public/assets/chevron.svg"
 import NewsEvent from './components/Sections/NewsEvent'
 import Footer from './components/Layout/Footer'
 import Navbar from './components/Layout/Navbar'
+import Services from './components/Sections/Services'
+import Information from './components/Sections/Information'
+import Contact from './components/Sections/Contact'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -33,15 +35,14 @@ export default function Home() {
               </span>
               <span className='hover:no-underline underline font-bold text-base'>INFORMATION FOR PROSPECTIVE STUDENTS</span>
             </button>
-            <button className='sm:hidden bg-black group w-60 h-60 rounded-full flex flex-col  items-center justify-between p-10  hover:bg-white text-white hover:text-black'>
-              <span className='font-bold text-base'>INFORMATION FOR PROSPECTIVE STUDENTS</span>
+            <button className='sm:hidden bg-black group w-64 h-64 rounded-full flex flex-col  items-center justify-between p-10  hover:bg-white text-white hover:text-black'>
+              <span className='font-bold text-base mt-5 p-3'>INFORMATION FOR PROSPECTIVE STUDENTS</span>
               <span className='group-hover:stroke-black'>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="20px" height="20px" viewBox="0 0 20 20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z" /></svg>
               </span>
             </button>
           </div>
         </div>
-
         <div className='bg-white pt-14 pb-8'>
           <div className='bg-[#eeeeee] py-5 flex flex-col gap-y-5 px-10 sm:mx-3 mx-48'>
             <label className='text-gray-600'>Begriff</label>
@@ -49,78 +50,10 @@ export default function Home() {
             <button className='bg-[#004191] w-52 text-white hover:bg-gray-900 outline-none py-2 px-4'>Begriff suchen</button>
           </div>
         </div>
-
-        <div className='bg-white pb-10 sm:px-4 px-[5.625rem]'>
-          <div className='grid sm:grid-cols-1 grid-cols-3 gap-5'>
-            {
-              [1, 2, 3].map((item, i) => {
-                return (
-                  <div className='flex flex-col gap-y-5'>
-                    <img className='sm:mx-auto ' src="https://www.student.uni-stuttgart.de/img/easydb-2019_11_20_Unitag_118.jpg?__scale=w:370,h:370,cx:332,cy:0,cw:1335,ch:1335" alt="" />
-                    <h4 className='font-bold text-2xl'>Digital services</h4>
-                    <ul className='flex flex-col gap-y-3'>
-                      {
-                        [1, 2, 3, 4, 5, 6].map((item, i) => {
-                          return (
-                            <li className='text-[#004191] hover:underline text-lg flex gap-3 items-center'><span><Image src={Chevron} alt="" /></span> C@MPUS - campus management and lectures</li>
-                          )
-                        })
-                      }
-                    </ul>
-                  </div>
-                )
-              })
-            }
-          </div>
-          <div className='flex justify-center items-center'>
-            <button className='bg-[#004191] font-bold my-10 text-white hover:bg-gray-900 outline-none py-4 px-8'>Study programs' webpages for students</button>
-          </div>
-        </div>
+        <Services />
         <NewsEvent />
-        <div className='mt-5 bg-[#004191] px-[5.625rem] py-10'>
-          <h1 className='text-white font-bold text-3xl pb-5'>Information for students</h1>
-          <div className='grid grid-cols-2 gap-5'>
-            {
-              [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((item, i) => {
-                return (
-                  <div className='flex items-center h-full w-full gap-x-3 text-white'>
-                    <div className='w-40 h-20 border border-white rounded-full flex flex-col  items-center justify-center'><Image src={Chevron} /></div>
-                    <div className='flex flex-col gap-y-2'>
-                      <h3 className='font-bold text-2xl'>All study programs</h3>
-                      <p className='text-base'>
-                        On the webpages of your degree program you will find information on the study program structure, …</p>
-                    </div>
-                  </div>
-                )
-              })
-            }
-          </div>
-        </div>
-
-        <div className='bg-white px-[5.625rem] py-20'>
-          <h1 className='font-bold text-3xl pb-5'>Contact</h1>
-          <div className='grid grid-cols-3 gap-x-7'>
-            {
-              [1, 2, 3].map((item, i) => {
-                return (
-                  <div className='flex flex-col gap-y-5 border-2 border-black p-4'>
-                    <span className='rounded-full overflow-hidden mx-auto mt-5'><img src="https://www.beschaeftigte.uni-stuttgart.de/img-beschaeftigte/iz_mitarbeiter/Dezernat-Internationales-IZ.jpg?__scale=w:150,h:150,cx:0,cy:0,cw:2000,ch:2000" alt="" /></span>
-                    <h2 className='font-bold text-2xl'>Dezernat Internationales</h2>
-                    <div className='flex flex-col gap-y-3 h-[20rem]'>
-                      {
-                        [1, 2].map((item, i) => {
-                          return (
-                            <div className='flex gap-x-2'><span>Icon</span><span className='hover:underline'>Email</span></div>
-                          )
-                        })
-                      }
-                    </div>
-                  </div>
-                )
-              })
-            }
-          </div>
-        </div>
+        <Information />
+        <Contact />
         <Footer />
       </Wrapper>
     </>
