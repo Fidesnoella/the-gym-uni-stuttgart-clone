@@ -59,7 +59,7 @@ const Navbar = () => {
                     <button />
                     <button className='text-xs flex gap-3 items-center'>University of Stuttgart<span className='rounded-full border w-5 h-5'><Image src={chevron} width={20} height={20} /></span></button>
                 </div>
-                <div className={`bg-white  max-w-6xl flex items-center justify-between sm:px-4 px-[5.625rem]  ${scrolled > 12 ? "fixed w-full top-0 duration-200 py-4" : "py-10 relative top-[0.2%]"}`}>
+                <div className={`bg-white  max-w-6xl flex items-center justify-between sm:px-4 px-[5.625rem]  ${scrolled > 12 ? "fixed z-[9999999] w-full top-0 duration-200 py-4" : "py-10 relative top-[0.2%]"}`}>
                     <Link href={"/"}>
                         <div><Image src={Logo} /></div>
                     </Link>

@@ -7,7 +7,7 @@ const wrapper = ({ children }) => {
                 {children}
             </div>
         </div>
-    );
+    )
 }
 
 export default wrapper;
