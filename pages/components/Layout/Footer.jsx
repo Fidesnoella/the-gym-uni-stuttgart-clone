@@ -1,11 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
+import Wrapper from '../wrapper';
 import LogoWhite from "../../../public/assets/logoWhite.svg"
 import Facebook from "../../../public/assets/facebook.svg"
 
 function Footer() {
     return (
-        <div>
+        <Wrapper>
             <footer className='bg-[#333333] text-white sm:px-4 px-[5.625rem] pt-10 pb-20 flex flex-col gap-10'>
                 <div className='flex md:flex-col gap-10 sm:items-start items-center'>
                     <div><Image src={LogoWhite} width={250} height={300} /></div>
@@ -43,7 +44,7 @@ function Footer() {
                     }
                 </div>
             </footer>
-        </div>
+        </Wrapper>
     );
 }
 

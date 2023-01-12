@@ -3,8 +3,8 @@ import { Inter } from '@next/font/google'
 import Image from 'next/image'
 import Wrapper from './components/wrapper'
 import NewsEvent from './components/Sections/NewsEvent'
-import Footer from './components/Layout/Footer'
-import Navbar from './components/Layout/Navbar'
+// import Footer from './components/Layout/Footer'
+// import Navbar from './components/Layout/Navbar'
 import Services from './components/Sections/Services'
 import Information from './components/Sections/Information'
 import Contact from './components/Sections/Contact'
@@ -22,7 +22,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Wrapper>
-        <Navbar />
+        {/* <Navbar /> */}
         <div className='bg-[#00beff] sm:flex-col flex justify-between sm:px-4 px-[5.625rem] pt-10 pb-20 gap-x-10'>
           <div className='flex flex-col gap-y-5'>
             <h1 className='font-bold text-2xl'>Students</h1>
@@ -54,7 +54,7 @@ export default function Home() {
         <NewsEvent />
         <Information />
         <Contact />
-        <Footer />
+        {/* <Footer /> */}
       </Wrapper>
     </>
   )

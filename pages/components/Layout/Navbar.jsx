@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import Wrapper from '../wrapper';
 import Logo from "../../../public/assets/logo.svg"
 import LogoWhite from "../../../public/assets/logoWhite.svg"
 import Search from "../../../public/assets/search.svg"
@@ -15,10 +17,37 @@ import chevron from "../../../public/assets/chevron-rights.svg"
 
 const Navbar = () => {
     const [show, setShow] = useState(false)
+    const [scrolled, setScrolled] = useState(0)
+
+    useEffect(() => {
+        const changescrolled = () => {
+            // window.scrollY >= 10
+            //     ? setScrolled(window.scrollY)
+            //     : setScrolled(window.scrollY);
+            setScrolled(window.scrollY);
+        };
+        window.addEventListener("scroll", changescrolled);
+        return () => {
+            window.removeEventListener("scroll", changescrolled);
+            // console.log(scrolled);
+
+        };
+    }, [scrolled]);
+
+    // Remove scrolling
+    useEffect(() => {
+        document.body.style.overflow = show ? "hidden" : "auto";
+        return () => (document.body.style.overflow = "scroll");
+    }, [show]);
+
+    // Remove background
+    const dynamic = useRouter().asPath;
+    useEffect(() => setShow(false), [dynamic]);
+
     return (
-        <div>
-            <nav>
-                <div className='sm:flex hidden  bg-[#004191] text-white justify-between px-4 py-2'>
+        <Wrapper>
+            <nav className='relative max-w-6xl'>
+                <div className='sm:flex hidden bg-[#004191] text-white justify-between px-4 py-2 '>
                     <button className='text-xs flex gap-3 items-center'>University of Stuttgart<span className='rounded-full border w-5 h-5'><Image src={chevron} width={20} height={20} /></span></button>
                     <button className='flex gap-2 cursor-pointer'>
                         <span><Image src={LangWhite} width={30} height={30} /></span>
@@ -30,8 +59,10 @@ const Navbar = () => {
                     <button />
                     <button className='text-xs flex gap-3 items-center'>University of Stuttgart<span className='rounded-full border w-5 h-5'><Image src={chevron} width={20} height={20} /></span></button>
                 </div>
-                <div className='bg-white flex items-center justify-between sm:px-4 px-[5.625rem] py-10'>
-                    <div><Image src={Logo} /></div>
+                <div className={`bg-white  max-w-6xl flex items-center justify-between sm:px-4 px-[5.625rem]  ${scrolled > 12 ? "fixed w-full top-0 duration-200 py-4" : "py-10 relative top-[0.2%]"}`}>
+                    <Link href={"/"}>
+                        <div><Image src={Logo} /></div>
+                    </Link>
                     <div className='flex items-center gap-3 cursor-pointer'>
                         <span className='sm:hidden block'><Image src={Lang} width={40} height={40} /></span>
                         <span className='sm:hidden block'><Image src={Search} width={30} height={30} /></span>
@@ -41,9 +72,11 @@ const Navbar = () => {
             </nav>
             {
                 show && (
-                    <div className='h-screen bg-[#333333] bg-opacity-90 text-white -mt-36 duration-300'>
+                    <div className='h-screen bg-[#333333] bg-opacity-90 text-white -mt-36 duration-300 z-[999999999] relative'>
                         <div className='flex items-center bg-[#333333] justify-between sm:px-4 px-[5.625rem] py-10'>
-                            <div><Image src={LogoWhite} /></div>
+                            <Link href={"/"}>
+                                <div><Image src={LogoWhite} /></div>
+                            </Link>
                             <div className='flex items-center gap-2'>
                                 <span><Image src={SearchWhite} width={30} height={30} /></span>
                                 <span onClick={() => setShow(!show)}><Image src={cross} width={40} height={30} /></span>
@@ -54,12 +87,10 @@ const Navbar = () => {
                                 {
                                     ["All study programs", "Starting Out", "Study organisation", "Examination Organisation", "Digital Services"].map((item, i) => {
                                         return (
-                                            <span className='border-b-2 border-dashed p-2 hover:bg-[#00bcff]'>
-                                                <Link href={item} key={i} className="flex justify-between">
-                                                    <span>{item}</span>
-                                                    <span><Image src={chevron} width={20} height={20} /></span>
-                                                </Link>
-                                            </span>
+                                            <Link href={item} key={i} className="flex w-full justify-between border-b-2 border-dashed p-2 hover:bg-[#00bcff]">
+                                                <span>{item}</span>
+                                                <span><Image src={chevron} width={20} height={20} /></span>
+                                            </Link>
                                         )
                                     })
                                 }
@@ -68,7 +99,7 @@ const Navbar = () => {
                     </div>
                 )
             }
-        </div>
+        </Wrapper>
     );
 }
 
