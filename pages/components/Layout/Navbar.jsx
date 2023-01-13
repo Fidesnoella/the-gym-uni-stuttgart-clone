@@ -59,7 +59,7 @@ const Navbar = () => {
                     <button />
                     <button className='text-xs flex gap-3 items-center'>University of Stuttgart<span className='rounded-full border w-5 h-5'><Image src={chevron} width={20} height={20} /></span></button>
                 </div>
-                <div className={`bg-white  max-w-6xl flex items-center justify-between sm:px-4 px-[5.625rem]  ${scrolled > 12 ? "fixed z-[9999999] w-full top-0 duration-200 py-4" : "py-10 relative top-[0.2%]"}`}>
+                <div className={`bg-white  max-w-6xl flex items-center justify-between sm:gap-x-8 sm:px-4 px-[5.625rem]  ${scrolled > 12 ? "fixed w-full duration-300 ease-in-out top-0 py-4" : "py-10 relative top-[0.2%]"}`}>
                     <Link href={"/"}>
                         <div><Image src={Logo} /></div>
                     </Link>
@@ -72,8 +72,8 @@ const Navbar = () => {
             </nav>
             {
                 show && (
-                    <div className='h-screen bg-[#333333] bg-opacity-90 text-white -mt-36 duration-300 z-[999999999] relative'>
-                        <div className='flex items-center bg-[#333333] justify-between sm:px-4 px-[5.625rem] py-10'>
+                    <div className='h-screen bg-[#333333] bg-opacity-90 text-white top-0 duration-300 z-[9999] fixed inset-x-0 max-w-6xl mx-auto'>
+                        <div className='flex items-center bg-[#333333] gap-x-8 justify-between sm:px-4 px-[5.625rem] py-10'>
                             <Link href={"/"}>
                                 <div><Image src={LogoWhite} /></div>
                             </Link>
